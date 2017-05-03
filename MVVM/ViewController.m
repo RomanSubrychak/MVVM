@@ -7,16 +7,28 @@
 //
 
 #import "ViewController.h"
+#import "Person.h"
+#import "PersonViewModel.h"
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *birthdateLabel;
+
+@property (nonatomic) Person *model;
+@property (nonatomic) PersonViewModel *viewModel;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
+	_model = [[Person alloc] initWithSalutation: @"Hello" firstName: @"John" lastName: @"Appleseed" birthdate:[NSDate new]];
+	_viewModel = [[PersonViewModel alloc] initWithPerson:model];
+	
+	self.nameLabel.text = self.viewModel.nameText;
+	self.birthdateLabel.text = self.viewModel.birthdateText;
 }
 
 
