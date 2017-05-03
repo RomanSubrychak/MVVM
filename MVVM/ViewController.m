@@ -25,7 +25,7 @@
 	[super viewDidLoad];
 	
 	_model = [[Person alloc] initWithSalutation: @"Hello" firstName: @"John" lastName: @"Appleseed" birthdate:[NSDate new]];
-	_viewModel = [[PersonViewModel alloc] initWithPerson:model];
+	_viewModel = [[PersonViewModel alloc] initWithPerson:_model];
 	
 	self.nameLabel.text = self.viewModel.nameText;
 	self.birthdateLabel.text = self.viewModel.birthdateText;
